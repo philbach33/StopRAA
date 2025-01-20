@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#317EFB">
+	<title>RAA</title>
+
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">  
+	<link rel="apple-touch-icon" href="../icons/icon-192x192.png">  
+
+	<script>
+		let gGlobal = [];
+		var timestamp = Date.now();
+		
+		gGlobal['ROOT'] = '/raa/';
+		gGlobal['PATH'] = '../';
+		gGlobal['VERSION'] = timestamp;
+	</script>
+	<script type="text/javascript" src="/raa/script/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/raa/script/bcrypt.min.js"></script>	
+	<script src="/raa/script/common.js"></script>
+	<script src="/raa/script/indexedDB.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/raa/css/styles.css?t=1736854223766"/>
+	<link rel="stylesheet" type="text/css" href="/raa/css/register.css?t=1736854223766"/>
+	<script type="text/javascript" src="/raa/script/register.js?t=1736854223766"></script>
+</head>
+
+<div id="header">
+	<div id="network-status"><svg></svg></div>
+	<div id="version"></div>
+	<div id="hamburger"><div></div><div></div><div></div></div>
+	<div id="user-menu" style="display:none"><svg></svg></div>
+</div>
+
+<div id="menu" class="hide">
+	<div id="title">
+		<span>Menu</span>
+		<div id="close">&#10060;</div>
+	</div>
+	<ul id="items">
+		<li><a href="/raa/out/page-home.html">+ Accueil</a></li>
+		<li id="profil"><a href="/raa/out/page-user.html">+ Mon profil</a></li>
+		<li><a href="/raa/documents/definition-classification-atteintes-valvulaires.pdf" target="_blank">+ Définition atteintes valvulaires</a></li>
+		<li id="apropos">+ A propos</li>
+		<li id="logout">+ Se déconnecter</li>
+	</ul>
+	<div id="footer">Version</div>
+</div>
+
+<div id="loader"><img src="/raa/assets/images/loading.gif"/></div>
+
+<div id="popup" class="hide">
+	<div id="header">
+		<div id="close">&#10060;</div>
+	</div>
+	<div id="wrapper"></div>
+	<button class="button">Fermer</button>
+</div>
+
+<div id="register-wrapper">
+<div align="left" id="box">
+	<form id="form" method="post" action="">
+		<div class="titre">Inscription Diagnostic RAA
+			<i id="help" class="fas fa-info-circle"></i>
+		</div>
+		<div id="instructions">
+			{PLATEFORME_MESSAGE_1}<br/>{PLATEFORME_MESSAGE_2}
+		</div>					
+		<div align="center" id="login">
+			<div class="error" id="error-group"></div>
+
+			<div class="interline"></div>
+			<label>Nom</label>
+			<input type="text" id="firstname" name="firstname" value="Stéphane" placeholder="Prénom">
+			<div class="error" id="error-firstname"></div>
+
+			<label>Prénom</label>
+			<input type="text" id="lastname" name="lastname" value="Lafitte" placeholder="Nom">
+			<div class="error" id="error-lastname"></div>
+			<br/>
+			<label>Adresse mail</label>
+			<input type="text" id="email" name="email" placeholder="Adresse mail"  value="stlafitte@gmail.com">
+			<div class="error" id="error-email"></div>
+			<div class="interline"></div>
+
+			<label>Mot de passe</label><span class='infos orange'> 8 caractères, une majuscule et un caractère spécial ( &!?#$* ) minimun</span>
+			<div class="password">
+				<input type="password" id="password" name="password" placeholder="Mot de passe" value="#Ba123456">
+				<i class="password-status far fa-eye"></i>
+			</div>			
+			<div class="error" id="error-pwd"></div>
+
+			<label>Confirmation du mot de passe</label>			
+			<div class="password">
+				<input type="password" id="password-confirm" name="password-confirm" placeholder="Confirmation mot de passe" value="#Ba123456">
+				<i class="password-status far fa-eye"></i>
+			</div>						
+			<div class="error" id="error-pwd-confirm"></div>
+		</div>
+		<div id="CGU">
+			En cliquant sur S'inscrire, vous acceptez nos <a target="_blank" href="CGU.pdf">Conditions Générales d'Utilisation</a>.
+		</div>
+		<div align="center" id="submit"><input name="submit" type="submit" class="bouton-submit" value="S'inscrire"></div>
+	</form>
+</div>
+</div>
+</body>

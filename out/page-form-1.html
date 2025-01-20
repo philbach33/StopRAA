@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#317EFB">
+	<title>RAA</title>
+
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">  
+	<link rel="apple-touch-icon" href="../icons/icon-192x192.png">  
+
+	<script>
+		let gGlobal = [];
+		var timestamp = Date.now();
+		
+		gGlobal['ROOT'] = '/raa/';
+		gGlobal['PATH'] = '../';
+		gGlobal['VERSION'] = timestamp;
+	</script>
+	<script type="text/javascript" src="/raa/script/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/raa/script/bcrypt.min.js"></script>	
+	<script src="/raa/script/common.js"></script>
+	<script src="/raa/script/indexedDB.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/raa/css/styles.css?t=1736854223761"/>
+	<link rel="stylesheet" type="text/css" href="/raa/css/form.css?t=1736854223761"/>
+	<script type="text/javascript" src="/raa/script/jspdf.umd.js?t=1736854223761"></script>
+	<script type="text/javascript" src="/raa/script/html2canvas.min.js?t=1736854223761"></script>
+	<script type="text/javascript" src="/raa/script/jspdf.plugin.autotable.min.js?t=1736854223761"></script>
+	<script type="text/javascript" src="/raa/script/form-1.js?t=1736854223761"></script>
+</head>
+
+<div id="header">
+	<div id="network-status"><svg></svg></div>
+	<div id="version"></div>
+	<div id="hamburger"><div></div><div></div><div></div></div>
+	<div id="user-menu" style="display:none"><svg></svg></div>
+</div>
+
+<div id="menu" class="hide">
+	<div id="title">
+		<span>Menu</span>
+		<div id="close">&#10060;</div>
+	</div>
+	<ul id="items">
+		<li><a href="/raa/out/page-home.html">+ Accueil</a></li>
+		<li id="profil"><a href="/raa/out/page-user.html">+ Mon profil</a></li>
+		<li><a href="/raa/documents/definition-classification-atteintes-valvulaires.pdf" target="_blank">+ Définition atteintes valvulaires</a></li>
+		<li id="apropos">+ A propos</li>
+		<li id="logout">+ Se déconnecter</li>
+	</ul>
+	<div id="footer">Version</div>
+</div>
+
+<div id="loader"><img src="/raa/assets/images/loading.gif"/></div>
+
+<div id="popup" class="hide">
+	<div id="header">
+		<div id="close">&#10060;</div>
+	</div>
+	<div id="wrapper"></div>
+	<button class="button">Fermer</button>
+</div>
+
+<div id="wrapper" class="center">
+	<div class="page activate" id="page-1">
+		<h1>ADMIN</h1>
+		<div class="row no-border"><span>Nom</span><input type="text" name="lastname" value =""/></div>
+		<div class="row no-border"><span>Prénom</span><input type="text" name="firstname" value =""/></div>
+		<div class="row no-border"><span>Date de naissance (jj/mm/aaaa)</span><input type="text" name="birth_date" value =""/></div>
+		<div class="row no-border">
+			<span>Sexe</span>
+			<select name="sexe">
+				<option value="0">-- Choisir le sexe --</option>
+				<option value="F">F</option>
+				<option value="M">M</option>
+			</select>
+		</div>
+		<div class="row no-border"><span>Numéro de DN</span><input type="text" name="dn" value =""/></div>
+		<div class="row no-border"><span>Régime CPS</span><input type="text" name="cps" value =""/></div>
+		<div class="row no-border"><span>Adresse (commune)</span><input type="text" name="address" value =""/></div>
+		<div class="row no-border"><span>Date du dépistage (jj/mm/aaaa)</span><input type="text" name="screening_date" value =""/></div>
+		<div class="row no-border"><span>Lieu du dépistage</span><input type="text" name="screening_where" value =""/></div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+	
+	<div class="page" id="page-2">
+		<h1>CONTEXTE</h1>
+		<div class="row no-border"><span>Antécédents personnels de douleur articulaire évocatrice de RAA (date, durée, nombre, articulations atteintes, consultation médicale)</span><textarea rows="4" class="" name="background" id="background"></textarea></div>
+		<div class="row">
+			<span>Antécédents familiaux de RAA</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="back_raa"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="back_raa"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+			<div class="detail">
+				<label class="before">Précisez:</label>
+				<textarea class="empty" name="back_raa_detail" name="back_raa_detail" id="back_raa_detail"></textarea>
+			</div>
+		</div>
+		<div class="row no-border">
+			<span>Niveau socio-économique</span>
+			<select name="social_level">
+				<option value="0">-- Choisir le niveau --</option>
+				<option value="B">Bas</option>
+				<option value="M">Moyen</option>
+				<option value="E">Elevé</option>
+			</select>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+	
+	<div class="page" id="page-3">
+		<h1>EXAMEN CLINIQUE</h1>
+		<div class="row">
+			<span>Symptômes cardiaques</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="ec_cardiac_symptom"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="ec_cardiac_symptom"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+			<div class="detail">
+				<label class="before">Précisez:</label>
+				<textarea class="empty" name="ec_cardiac_symptom_detail" name="ec_cardiac_symptom_detail" id="ec_cardiac_symptom_detail"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<span>Souffle cardiaque</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="ec_heart_murmur"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="ec_heart_murmur"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>Signes d’insuffisance cardiaque</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="ec_heart_failure"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="ec_heart_failure"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>Arythmie (FA)</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="ec_faa"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="ec_faa"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>Antécédents d'AVC</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="ec_avc"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="ec_avc"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+
+	<div class="page" id="page-4">
+		<h1>EXAMEN ECHOCARDIOGRAPHIQUE</h1>
+		<h2>Etape 1: Elimination d'une atteinte sévère</h2>
+		<div class="row">
+			<span>IM moyenne à sévère</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="moderate_mi"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="moderate_mi"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>IA moyenne à sévère</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="moderate_ai"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="moderate_ai"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>Dysfonction VG</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="dysfunction_lv"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="dysfunction_lv"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>Sténose mitrale (tout grade)</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="mitral_stenosis"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="mitral_stenosis"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<span>Sténose aortique</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="aortic_stenosis"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="aortic_stenosis"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+
+	<div class="page" id="page-5">
+		<h1>EXAMEN ECHOCARDIOGRAPHIQUE</h1>
+		<h2>Etape 2: Elimination d’une autre étiologie</h2>
+		<div class="row">
+			<span>Cardiopathie congénitale</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="etio_congenital_heart_disease"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="etio_congenital_heart_disease"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+			<div class="detail">
+				<label class="before">Précisez:</label>
+				<textarea class="empty" name="etio_congenital_heart_disease_detail" name="etio_congenital_heart_disease_detail" id="etio_congenital_heart_disease_detail"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<span>Maladie de Barlow like</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="etio_barlow_disease"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="etio_barlow_disease"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+			<div class="detail">
+				<label class="before">Précisez:</label>
+				<textarea class="empty" name="etio_barlow_disease_detail" name="etio_barlow_disease_detail" id="etio_barlow_disease_detail"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<span>Autre(s)</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="etio_other"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="etio_other"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+			<div class="detail">
+				<label class="before">Précisez:</label>
+				<textarea class="empty" name="etio_other_detail" name="etio_other_detail" id="etio_other_detail"></textarea>
+			</div>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+
+	<div class="page" id="page-6">
+		<h1>EXAMEN ECHOCARDIOGRAPHIQUE</h1>
+		<h2>Etape 3: Critères de Confirmation (1)</h2>
+		<div class="box">
+			<div class="title">Fuite pathologique (tous les critères doivent être réunis)</div>
+			<h3><span>+ Valve mitrale</span><span>Oui</span><span>Non</span></h3>
+			<div class="row-flex">
+				<span>IM vue dans au moins deux incidences </span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="vm_im_view"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="vm_im_view"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Jet ≥ 2 cm dans au moins une incidence (jet ≥ 1,5cm si poids < 30kg)</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="vm_jet_2cm"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="vm_jet_2cm"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>DCont : Vitesse maximale ≥ 3m/sec pour une enveloppe complète</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="vm_dont_speed"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="vm_dont_speed"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>DCont : Flux holosystolique dans au moins une enveloppe</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="vm_dont_flow"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="vm_dont_flow"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<h3><span>+ Valve aortique</span><span>Oui</span><span>Non</span></h3>
+			<div class="row-flex">
+				<span>IA vue sur deux incidences</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="va_2views"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="va_2views"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Jet ≥ 1 cm sur au moins une incidence</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="va_jet_1cm"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="va_jet_1cm"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>DCont : Vitesse maximale≥ 3m/sec en protodiastole</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="va_dont_speed"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="va_dont_speed"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>DCont : Flux holosystolique dans au moins une enveloppe</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="va_dont_flow"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="va_dont_flow"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+		</div>
+		<div class="box">
+			<div class="title">Sténose mitrale (tous les critères doivent être réunis)</div>
+			<div class="row-flex">
+				<span>Restriction des mouvements des feuillets et ouverture valvulaire limitée</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="limited_valve_opening"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="limited_valve_opening"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Gradient moyen ≥ 4 mmHg</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="average_gradient_4"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="average_gradient_4"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+
+	<div class="page" id="page-7">
+		<h1>EXAMEN ECHOCARDIOGRAPHIQUE</h1>
+		<h2>Etape 3: Critères de Confirmation (2)</h2>
+		<div class="box">
+			<div class="title">Critères morphologiques : un seul critère suffit chez les < 20 ans (2 critères nécessaires si ≥20 ans)</div>
+			<h3><span>+ Valve mitrale</span><span>Oui</span><span>Non</span></h3>
+			<div class="row-flex">
+				<span>Epaisseur de la valve antérieure ≥ 3 mm (en diastole)</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_vm_valve_thickness"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_vm_valve_thickness"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Epaississement des cordages</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_vm_ropes_thickening"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_vm_ropes_thickening"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Restriction des mouvements des valves</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_vm_restriction_valve_movements"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_vm_restriction_valve_movements"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Mouvement excessif de l’extrémité de la grande valve durant la systole</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_vm_excessive_movement_valve"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_vm_excessive_movement_valve"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<h3><span>+ Valve aortique</span><span>Oui</span><span>Non</span></h3>
+			<div class="row-flex">
+				<span>Epaississement des sigmoides</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_va_sigmoids_thickening"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_va_sigmoids_thickening"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Prolapsus d’une sigmoide</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_va_sigmoid_prolapse"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_va_sigmoid_prolapse"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Restriction du mouvement des sigmoides</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_va_sigmoid_movements"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_va_sigmoid_movements"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="row-flex">
+				<span>Défaut de coaptation en diastole</span>
+				<label class="radiobox">
+					<input type="radio" class=""  value="ok" name="cm_va_failure_diastole"/>
+					<span class="checkmark"></span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="" checked value="ko" name="cm_va_failure_diastole"/>
+					<span class="checkmark"></span>
+				</label>
+			</div>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page" data-callback="processGroup">Suivant</button>
+		</div>
+	</div>
+
+	<div class="page" id="page-8">
+		<h1>Diagnostic Calculé</h1>
+		<h2>title</h2>
+		<div class="box">
+			<p><b>Stade A</b> : Critères écho minimum de CR</p>
+			<li><u>Age</u>: < 20 ans uniquement</li>
+			<li><u>Risque évolutif</u>: Progression possible vers une valvulopathie</li>
+			<li><u>Échographie</u>: Fuite pathologique légère mitrale ou aortique sans critères morpho</li>
+			<li><u>CAT</u>: Envisager le traitement si ATCD/contexte familial et/ou personnel</li>
+		</div>
+		<div class="box">
+			<p><b>Stade B</b> : CRC légère **</p>
+			<li><u>Age</u>: Tout âge</li>
+			<li><u>Risque évolutif</u>: modéré ou élevé et risque avec symptômes de cardiopathie rhumatismale</li>
+			<li><u>Échographie</u>: Fuite valvulaire pathologique légère + 1 critère morphologique si âge ≤20 ans (+ 2 critères morphologiques si âge > 20 ans) OU IM légère + lA légère</li>
+		</div>
+		<div class="box">
+			<p><b>Stade C</b>: CRC avérée à risque de complications cliniques</p>
+			<li><u>Age</u>: Tout âge</li>
+			<li><u>Risque évolutif</u>: Haut risque de complications cliniques nécessitant un traitement médical et/ou chirurgical</li>
+			<li><u>Echographie</u>: IM modérée ou sévère, lA modérée ou sévère, sténose mitrale, hypertension pulmonaire, fonction systolique du VG diminuée</li>
+		</div>
+		<div class="box">
+			<p><b>Stade D</b : CRC sévère avec complications cliniques</p>
+			<li><u>Age</u>: Tout âge</li>
+			<li><u>Risque évolutif</u>: Complications incluant insuffisance cardiaque congestive, chirurgie, arythmie, AVC, endocardite infectieuse</li>
+			<li><u>Echographie</u>: Fuite mitrale modérée/sévère, fuite aortique modérée/sévère, sténose mitrale ou aortique, hypertension pulmonaire, fonction VG diminuée</li>
+		</div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page">Suivant</button>
+		</div>
+	</div>
+
+	<div class="page" id="page-9">
+		<h1>Diagnostic</h1>
+		<div class="row no-border">
+			<span>Diagnostic de confirmation</span>
+			<select class="empty" name="diagnostic">
+				<option value="0">-- Choisir --</option>
+				<option value="NORMAL">Normal</option>
+				<option value="CRC">CRC</option>
+				<option value="NON_PATHOLOGIQUE">Non pathologique/Physiologique</option>
+				<option value="DYSTROPHIQUE_MYXOIDE">Dystrophique/myxoïde</option>
+			</select>
+		</div>
+		<div class="row no-border">
+			<span>Groupage CRC</span>
+			<select class="empty" name="crc">
+				<option value="0">-- Choisir groupe--</option>
+				<option value="CRC_NO">Sans objet</option>
+				<option value="CRC_A">A</option>
+				<option value="CRC_B">B</option>
+				<option value="CRC_C">C</option>
+				<option value="CRC_D">D</option>
+			</select>
+		</div>
+		<div class="row">
+			<span>Autre anomalie congénitale</span>
+			<div class="radio-cols">
+				<label class="radiobox">
+					<input type="radio" class="empty"  value="ok" name="other_congenital_anomaly"/>
+					<span class="checkmark"></span><span>Oui</span>
+				</label>
+				<label class="radiobox">
+					<input type="radio" class="empty"  value="ko" name="other_congenital_anomaly"/>
+					<span class="checkmark"></span><span>Non</span>
+				</label>
+			</div>
+			<div class="detail">
+				<label class="before">Précisez:</label>
+				<textarea class="empty" name="other_congenital_anomaly_detail" name="other_congenital_anomaly_detail" id="other_congenital_anomaly_detail"></textarea>
+			</div>
+		</div>
+		<div class="row no-border">
+			<span>Surveillance échocardiographique</span>
+			<select class="empty" name="surveillance_echo">
+				<option value="0">-- Choisir --</option>
+				<option value="ANNUELLE">Annuelle</option>
+				<option value="SEMESTRIELLE">Semestrielle</option>
+			</select>
+		</div>
+		<div class="row no-border">
+			<span>Traitement</span>
+			<select class="empty" name="traitement">
+				<option value="0">-- Choisir --</option>
+				<option value="NONE">Pas de traitement</option>
+				<option value="BGP4">BPG / 4 semaines</option>
+				<option value="BPG3">BPG / 3 semaines</option>
+				<option value="ORACILLINE">Oracilline</option>
+				<option value="MACROLIDE">Macrolide</option>
+			</select>
+		</div>
+		<div class="row no-border"><span>Durée de PII recommandée</span><textarea rows="4" class="empty" name="duree_pii" id="duree_pii"></textarea></div>
+		<div class="navigation">
+			<button class="button last-page">Précédent</button>
+			<button class="button next-page" data-callback="processPDF">Suivant</button>
+		</div>
+	</div>
+
+	<!-- INCLUDE PAGEPDF1 -->
+
+	<div class="page page-pdf" style="height: 100%; overflow-y: auto;">
+
+		<object class="pdf-object" id="pdfFrame-0"
+		  data="" 
+		  type="application/pdf">
+		  <p>Votre navigateur ne prend pas en charge l'affichage des PDF. Vous pouvez 
+		  <a href="" target="_blank">
+		    télécharger le fichier ici
+		  </a>.</p>
+		</object>	
+		
+		<object class="pdf-object" id="pdfFrame-1"
+		  data="" 
+		  type="application/pdf" >
+		  <p>Votre navigateur ne prend pas en charge l'affichage des PDF. Vous pouvez 
+		  <a href="" target="_blank">
+		    télécharger le fichier ici
+		  </a>.</p>
+		</object>		
+		
+		<object class="pdf-object" id="pdfFrame-2"
+		  data="" 
+		  type="application/pdf" >
+		  <p>Votre navigateur ne prend pas en charge l'affichage des PDF. Vous pouvez 
+		  <a href="" target="_blank">
+		    télécharger le fichier ici
+		  </a>.</p>
+		</object>	
+
+		<object class="pdf-object" id="pdfFrame-3"
+		  data="" 
+		  type="application/pdf">
+		  <p>Votre navigateur ne prend pas en charge l'affichage des PDF. Vous pouvez 
+		  <a href="" target="_blank">
+		    télécharger le fichier ici
+		  </a>.</p>
+		</object>	
+
+	</div>
+
+	<div id="operation-pdf">
+		<button id="generate-pdf" class="button hide">Enregistrer PDF</button>
+		<button id="send-pdf" class="button hide">Envoyer</button>
+	</div>
+</div>

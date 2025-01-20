@@ -1,0 +1,407 @@
+#wrapper { 
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	width: calc(100% - 20px);
+	width: calc(100%);
+	/*min-height: calc(100vh - var(--header-height) - 20px); */
+	/*height: calc(100vh - var(--header-height));*/
+	margin: 0;
+	padding: 0;
+	/*padding: 10px;*/
+	position: relative;
+	background-color: white;
+	margin-top: var(--header-height);
+	overflow-y: auto;
+
+	min-height: 100%; /* Permet d'occuper au moins la hauteur de l'écran */
+	/*max-height: calc(100vh - var(--header-height) - 20px); /* Défilement si le contenu dépasse */
+  	height: calc(100vh - var(--header-height)); /* Hauteur fixe en fonction de l'écran */
+
+	overflow-y: auto; /* Active le défilement vertical */	
+}
+
+#wrapper .page {
+	padding: 0 5px 0 5px;
+	width: calc(100% - 10px);
+	display: none;
+    flex-direction: column;
+    margin-top: 0px;
+  	height: auto; /* Laisse la hauteur s'adapter au contenu */
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#wrapper .page.activate { display: flex; }
+
+#wrapper .page .navigation {
+	/*bottom: 20px;*/
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	width: calc(100% - 0px);
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+#wrapper .page .navigation button {
+	margin: 0 5px 0 5px;
+}
+
+#wrapper .page .navigation button.disabled {
+	background-color: #CCC;
+	cursor: pointer;
+}
+
+#wrapper .row .radio-cols {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+}
+
+#wrapper .row span.algo,
+#wrapper .row-flex span.algo { color: #FF0000; }
+
+#wrapper .row .radiobox,
+#wrapper .row-flex .radiobox {
+	display: block;
+	flex-direction: row;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 35px;
+	height: 0px;
+	/*margin-bottom: 30px;*/
+	cursor: pointer;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#wrapper .row .radiobox { margin-top: 10px; margin-left: 10px; }
+#wrapper .row .radiobox:last-child { margin-left: 20px; }
+
+#wrapper .row .radiobox input,
+#wrapper .row-flex .radiobox input {
+	position: absolute;
+	display: none;
+	cursor: pointer;
+	background-color: white;
+    outline: none;
+    box-shadow: none;    
+}
+
+/* Le label Oui/Non */
+#wrapper .row span:nth-child(3) { display: block; height: 25px; line-height: 25px; margin: 0; padding: 0; margin-left: -5px; }
+
+/* Create a custom radio button */
+#wrapper .row .checkmark,
+#wrapper .row-flex .checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	margin: 0;
+	padding: 0;
+	background-color: #eee;
+	border-radius: 50%;
+    outline: none;
+    box-shadow: none;
+}
+
+/* On mouse-over, add a grey background color */
+#wrapper .row .radiobox:hover input ~ .checkmark,
+#wrapper .row-flex .radiobox:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+#wrapper .row .radiobox input:checked ~ .checkmark,
+#wrapper .row-flex .radiobox input:checked ~ .checkmark {
+	background-color: #CCC;
+}
+
+#wrapper .row .radiobox input[type="radio"]:focus + .checkmark,
+#wrapper .row-flex .radiobox input[type="radio"]:focus + .checkmark {
+    outline: none; /* Supprime le contour */
+    box-shadow: none; /* Supprime l'effet bleu */
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+#wrapper .row .checkmark:after,
+#wrapper .row-flex .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+#wrapper .row .radiobox input:checked ~ .checkmark:after,
+#wrapper .row-flex .radiobox input:checked ~ .checkmark:after {
+	display: block;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Style the indicator (dot/circle) */
+#wrapper .row .radiobox .checkmark:after,
+#wrapper .row-flex .radiobox .checkmark:after {
+	top: 0px;
+	left: 0px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #990000;
+}
+
+
+#wrapper .box .row.no-border,
+#wrapper .box .row-flex.no-border { border: 0; }
+
+#wrapper .row .detail, 
+#wrapper .row .checkbox {
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
+	margin-top: 0px;
+}
+
+#wrapper .row .detail {
+	flex-direction: column;	
+	margin-top: 0px;
+	display: none;
+}
+
+#wrapper .row .detail label { margin: 0; }
+
+#wrapper .detail textarea, 
+#wrapper .detail input[type="text"] {
+	width: calc(100% - 22px);
+	margin: 0;
+}
+
+#wrapper #hello {
+	width: 100%;
+	font-size: 1.2rem;
+	color: black;
+}
+
+#wrapper h1 { margin-top: 0; margin: 0; text-transform: uppercase; }
+
+#wrapper .box {
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	padding: 0px;
+	padding-bottom: 5px;
+	background-color: white;
+	width: calc(100% - 2px);
+	margin-bottom: 10px;
+}
+#wrapper .box { margin-top: 10px; }
+
+#wrapper .box.selected { background-color: #FFE6E6; }
+
+#wrapper .box .title {
+	background-color: #CCC;
+	color: black;
+	border-bottom: 1px solid black;
+	padding: 5px;
+	font-weight: bold;
+	width: calc(100% - 10px);
+}
+
+#wrapper .box h3 {
+	margin: 0;
+	padding: 5px;
+	background-color: #EFEFEF;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #555;
+	font-size: 1rem;
+	width: calc(100% - 10px);
+	display: flex;
+	flex-direction: row;
+}
+#wrapper .box h3 span { padding-right: 8px; }
+#wrapper .box h3 span:first-child { flex: 5; }
+
+#wrapper .box .row {
+	padding-left: 5px;
+	padding-right: 5px;
+	width: calc(100% - 10px);
+}
+
+#wrapper .box .row:first-child {
+	margin: 0;
+	padding-top: 0;
+}
+
+#wrapper .box .row:last-child { padding-bottom: 10px; border: 0; }
+#wrapper .box .row-flex:last-child { padding-bottom: 10px; border: 0; }
+
+#popup #wrapper .bilan { border: 1px solid #CCC; margin: 8px 0 10px 0; padding: 5px; }
+#popup #wrapper .bilan.actived { border: 1px solid red; background-color: #FFE6E6; }
+
+.bilan p { text-align: left; margin: 0; padding: 0 0 5px 0; }
+.box li { list-style: none; text-align: left; padding-right: 5px; padding-left: 15px; font-size: 1.1rem; }
+.box p { padding: 5px; margin: 0; font-size: 1.1rem; } 
+.bilan li { list-style: none; text-align: left; margin: 0; }
+
+/*
+*
+*/
+
+#wrapper .page-pdf1 {
+    width: 210mm;
+    height: 297mm;
+    height: auto;
+    /*margin: 10mm auto;*/
+    padding: 10mm;
+    box-sizing: border-box;
+    overflow: hidden;    
+    background: #fff;
+    transform-origin: top left; /* Point de transformation */    
+    display: none;
+    padding-bottom: 90px;
+    font-size: 0.8rem;
+}
+
+#wrapper .page-pdf {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;    
+    background: #fff;
+    display: none;
+    font-size: 0.8rem;
+
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: calc(100% - 0px);
+	margin-top: 0px;
+	margin-bottom: 0px;    
+}
+
+#wrapper .page-pdf.activate { display: block; }
+
+#wrapper .page-pdf .pdf-object { width: 100%; height: 100%; border-bottom: 1px solid #CCC; display:none; }
+#wrapper .page-pdf .pdf-object:first-child { border: 0; }
+#wrapper .page-pdf .pdf-object:last-child { border: 0; }
+
+#wrapper .page-pdf .saut-de-page {
+      page-break-before: always;
+}
+
+#wrapper .page-pdf h1 { font-size: 1.4rem; text-align: center; margin: 20px 0 40px 0; }
+#wrapper .page-pdf h2 { font-size: 1.2rem; text-decoration: none;  text-align: left; color: black; margin: 20px 0 10px 0; }
+#wrapper .page-pdf div { width: 100%; }
+#wrapper .page-pdf div.gras { font-weight: bold; }
+#wrapper .page-pdf div span { font-weight: normal; }
+#wrapper .page-pdf div label { font-weight: normal; }
+#wrapper .page-pdf div span.gras { 
+	font-weight: bold; 
+	border: 1px solid #CCC; 
+	padding: 3px; 
+	background-color: black; color: white; 
+    display: inline-flex; /* Utiliser inline-flex */
+    align-items: center; /* Centre verticalement */
+    background: #555; /* Pour visualiser la taille */
+    border-radius: 4px; /* Optionnel */
+}
+
+#wrapper .row div.radio {
+}
+
+.page-pdf div.textarea span { 
+	border: 1px solid #CCC; 
+	display: block; 
+	width: calc(100% - 2mm); 
+	padding: 1mm; 
+	margin-top: 1.5mm; 
+	min-height: 30px;
+}
+
+#wrapper .page-pdf .interligne { margin-top: 20px; }
+#wrapper .page-pdf .row {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	border: 0;
+}
+.page-pdf #date { text-align: right; }
+
+#wrapper .page-pdf .table {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	border: 1px solid black;
+	margin-bottom: 5px;
+}
+
+#wrapper .page-pdf .table .title { 
+	width: calc(100% - 10px); 
+	background-color: #CCC; 
+	border-bottom: 1px solid black; 
+	padding: 5px; 
+	font-weight: bold;
+}
+
+#wrapper .page-pdf .table .line { 
+	display: flex;
+	flex-direction: row;
+	background-color: white; 
+	border-bottom: 1px solid black; 
+}
+#wrapper .page-pdf .table .line:last-child { border-bottom: 0; }
+
+#wrapper .page-pdf .table .line div { flex: 1; border-left: 1px solid black; padding: 3px; }
+#wrapper .page-pdf .table .line div:first-child { flex: 0.4; border-left: 0; }
+#wrapper .page-pdf .table .line div:last-child { flex: 0.15; }
+
+#wrapper .page-pdf .table.classification .line div:first-child,
+#wrapper .page-pdf .table.classification-first .line div:first-child { flex: 0.2; }
+#wrapper .page-pdf .table.classification .line div:last-child,
+#wrapper .page-pdf .table.classification-first .line div:last-child { flex: 0.8; }
+
+#wrapper .page-pdf .table.classification-first { margin-top: 50px; }
+
+#wrapper #operation-pdf {
+	position: fixed;
+	margin-top: 30px;
+	width: calc(100% - 20px);
+	bottom: 10px;
+	left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    display: flex;
+    display: none;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper #operation-pdf button {
+	display: block;
+	width: auto;
+	margin: 0 10px 0 10px;
+}

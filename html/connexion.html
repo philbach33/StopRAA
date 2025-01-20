@@ -1,0 +1,41 @@
+<div id="connexion-wrapper" class="center bck-vert-clair">
+	<div id="icon"><img title="" src="{ROOT}{LOGO}"/></div>
+	<div class="vertical">
+		<div align="left" id="box">
+<!--			<form id="form" method="post" action="sources/login-submit.php">-->
+			<form id="form" method="post" action="">
+				<div class="titre">Connexion {SITE_NAME}
+					<i id="help" class="fas fa-info-circle"></i>
+				</div>
+				<div id="instructions">
+					{PLATEFORME_MESSAGE_1}<br/>{PLATEFORME_MESSAGE_2}
+				</div>	
+				<div id="server-error" class="hide"></div>
+
+				<div class="interline-x2"></div>
+				<div align="center" id="login">
+					<div class="row">
+						<div class="error" id="error-email"></div>
+						<input type="text" id="email" name="email" placeholder="Adresse mail" value="">
+					</div>
+
+					<div class="row">
+						<div class="error" id="error-pwd"></div>
+						<div class="password">
+							<input type="password" id="password" name="password" placeholder="Mot de passe" value="#Ba123456">
+							<i class="password-status far fa-eye"></i>
+						</div>
+					</div>
+					<input type="hidden" name="url" id="url" value="{LOGIN_BACK}"/>
+				</div>
+				<div align="center" id="submit">
+					<input name="submit" type="submit" class="bouton-submit" value="connexion">
+				</div>
+				<div id="footer">
+					<a id="inscription" href="page-register.html">Créer un compte</a>					
+					<a id="mdp" class="post" href="index.php?page=password">Mot de passe oublié</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

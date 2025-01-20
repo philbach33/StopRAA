@@ -1,0 +1,13 @@
+[
+	{ "name" : "lastname", "value" : "Durand" },
+	{ "name" : "firstname", "value" : "René" },
+	{ "name" : "birth_date", "value" : "22/12/1996" },
+	{ "name" : "sexe", "value" : "M"},
+	{ "name" : "dn", "value" : "1234567" },
+	{ "name" : "cps", "value" : "8900123" },
+	{ "name" : "address", "value" : "12 rue des Palmiers 33000 Bordeaux" },
+	{ "name" : "screening_date", "value" : "20/10/2024" },
+	{ "name" : "screening_where", "value" : "10/11/2024" },
+	{ "name" : "background", "value" : "Description antécédents de Mr Durand" },
+	{ "name" : "social_level", "value" : "B" }
+]

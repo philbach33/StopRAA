@@ -1,0 +1,13 @@
+[
+	{"name" : "sitename", "msg" : "Diagnostic RAA"},
+	{"name" : "form_incomplet", "msg": "Vous n'avez pas répondu à tous les items (marqués en rouge)."},
+	{"name" : "copyright", "msg" : "@2024 SL&PB"},
+	{"name" : "algo", "msg" : "proposé par l'algorithme et à confirmer"},
+	{"name" : "firstname", "msg" : "prénom"},
+	{"name" : "lastname", "msg" : "nom"},
+	{"name" : "phone", "msg" : "téléphone"},
+	{"name" : "city", "msg" : "Ville"},
+	{"name" : "birthday", "msg" : "Date de naissance"},
+	{"name" : "msg_connected_operation", "msg" : "Vous êtes hors-ligne. Cette opération n'est pas active"},
+	{"name" : "error-invalid-date", "msg" : "La date doit être au format jj/mm/aaaa" }
+]

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<svg width="640" height="512" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+ <defs>
+  <symbol id="svg_14" viewBox="0 0 51.04 49.47" xmlns="http://www.w3.org/2000/svg">
+   <defs>
+    <style>.cls-1,.cls-2{fill:none;}.cls-1{stroke:#f9ba00;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style>
+   </defs>
+   <g data-name="Calque 2" id="svg_12">
+    <g data-name="Calque 1" id="svg_13">
+     <rect class="cls-1" height="20.31" width="37.59" x="7.14" y="18.78"/>
+     <polyline class="cls-2" points="6.8 0 51.04 0 51.04 49.47 0 49.47 0 0 6.8 0"/>
+    </g>
+   </g>
+  </symbol>
+  <symbol id="svg_19" viewBox="0 0 51.04 49.47" xmlns="http://www.w3.org/2000/svg">
+   <defs>
+    <style>.cls-1,.cls-2,.cls-3{fill:none;}.cls-1{stroke:#fff;}.cls-1,.cls-3{stroke-linejoin:round;stroke-width:2px;}.cls-3{stroke:#f9ba00;}</style>
+   </defs>
+   <g data-name="Calque 2" id="svg_17">
+    <g data-name="Calque 1" id="svg_18">
+     <polyline class="cls-1" points="40.2 4.5 22.43 26.57 31.31 34.09 49.09 12.02"/>
+     <rect class="cls-2" height="49.47" width="51.04"/>
+     <polyline class="cls-1" points="25.01 28.75 22.5 31.86 26.19 34.93 28.68 31.86"/>
+     <line class="cls-3" x1="3.75" x2="35.76" y1="30.03" y2="48.47"/>
+     <polyline class="cls-1" points="23.52 32.71 20.44 38.35 25.17 34.09"/>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <path d="m54.2,202.9c69,-66.2 162.6,-106.9 265.8,-106.9s196.8,40.7 265.8,106.9c12.8,12.2 33,11.8 45.2,-0.9s11.8,-33 -0.9,-45.2c-80.4,-77.3 -189.7,-124.8 -310.1,-124.8s-229.7,47.5 -310.2,124.7c-12.7,12.3 -13.1,32.5 -0.9,45.3s32.5,13.2 45.2,0.9l0.1,0zm265.8,53.1c56.8,0 108.6,21.1 148.2,56c13.3,11.7 33.5,10.4 45.2,-2.8s10.4,-33.5 -2.8,-45.2c-50.8,-44.8 -117.6,-72 -190.6,-72s-139.8,27.2 -190.5,72c-13.3,11.7 -14.5,31.9 -2.8,45.2s31.9,14.5 45.2,2.8c39.5,-34.9 91.3,-56 148.2,-56l-0.1,0zm64,160a64,64 0 1 0 -128,0a64,64 0 1 0 128,0z" fill="#a5a4a4" id="svg_1"/>
+  <line fill="none" id="svg_2" x1="604.2" x2="89.2" y1="30.2" y2="426.2"/>
+  <line fill="none" id="svg_3" x1="552.2" x2="285.2" y1="25.2" y2="417.2"/>
+  <line fill="none" id="svg_9" x1="49.2" x2="152.2" y1="304.2" y2="137.2"/>
+  <line fill="none" id="svg_10" x1="41.2" x2="596.2" y1="68.2" y2="446.2"/>
+  <use id="svg_15" transform="matrix(3.34378 0 0 3.34378 0 0)" x="0" xlink:href="#svg_14" y="0"/>
+  <use id="svg_20" transform="matrix(3.34378 0 0 3.34378 0 0)" x="0" xlink:href="#svg_19" y="0"/>
+  <line fill="none" id="svg_21" x1="614.2" x2="39.2" y1="16.2" y2="476.2"/>
+ </g>
+</svg>

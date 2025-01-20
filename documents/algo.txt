@@ -1,0 +1,68 @@
+Pour le groupe A, c’est les critères écran 1
+-soit de Fuite pathologique Valve Mitrale (4 oui) im-2views-ok, jet-2cm-ok, vm-dont-speed-ok, dont-flow-ok
+-soit de Fuite pathologie Valve Aortique (4 oui) ia-2views-ok, jet-1cm-ok, va-dont-speed-ok, va-dont-flow-ok
+
+Si sténose mitrale avec les 2 critères ça envoie dans C ou D  limited-valve-opening-ok et average-gradient-4-ok
+
+Pour le groupe B, c'est :
+
+Soit l’association de Fuite pathologique Valve Mitrale (avec les 4 oui) et Fuite pathologique Valve aortique (avec les 4 oui)
+
+Soit Fuite pathologique Valve Mitrale (avec les 4 oui) + au moins 1 critère morphologique valve mitrale / 4 (écran 2 haut)
+
+Soit Fuite pathologique Valve Aortique (avec les 4 oui) + au moins 1 critère morphologique valve aortique / 4 (écran 2 bas)
+-----
+
+Si sténose mitrale avec les 2 critères ça envoie dans C ou D
+Si 1 item de l’étape 1 est coché, ça envoie sur C ou D
+
+D si dans page Examen Clinique (écran 4) sont cochés :
+	Insuffisance Cardiaque
+	Ou 
+	Arythmie (FA..) à rajouter si possible stp
+	Ou 
+	AVC à rajouter si possible stp
+
+-----
+
+Algorithme suite
+
+Si dans écran 5 : critères Fuite pathologique incomplets alors sujet non classé ni À,B,C,D
+
+Si dans écran 6 : autre étiologie 1 critère positif : alors sujet non classé ni À,B,C,D
+
+
+
+SI vm_im_view ET vm_jet_2cm ET vm_dont_speed ET vm_dont_flow
+ALORS GROUPE A
+
+SI va_2views ET va_jet_1cm ET va_dont_speed ET va_dont_flow 
+ALORS GROUPE A
+
+
+SI vm_im_view ET vm_jet_2cm ET vm_dont_speed ET vm_dont_flow ET va_2views ET va_jet_1cm ET va_dont_speed ET va_dont_flow 
+ALORS GROUPE B
+
+SI vm_im_view ET vm_jet_2cm ET vm_dont_speed ET vm_dont_flow ET 
+   (cm_vm_valve_thickness OU cm_vm_ropes_thickening OU cm_vm_restriction_valve_movements OU cm_vm_excessive_movement_valve) 
+ALORS GROUPE B
+
+SI va_2views ET va_jet_1cm ET va_dont_speed ET va_dont_flow ET 
+	(cm_va_sigmoids_thickening OU cm_va_sigmoid_prolapse OU cm_va_sigmoid_movements OU cm_va_failure_diastole)
+ALORS GROUPE B
+
+SI limited_valve_opening ET average_gradient_4 
+ALORS GROUPE C ou D
+
+SI moderate_mi OU moderate_ai OU dysfunction_lv OU mitral_stenosis OU aortic_stenosis 
+ALORS GROUPE C OU D
+
+SI ec_heart_failure OU ec_faa OU ec_avc 
+ALORS GROUPE D
+
+SI vm_im_view OU vm_jet_2cm OU vm_dont_speed OU vm_dont_flow 
+ALORS pas de RAA Cocher la case Non Pathologique
+
+SI congenital_heart_disease OU etio_other OU etio_barlow_disease 
+ALORS pas de RAA
+

@@ -1,0 +1,73 @@
+20250105 20:28:11: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250105 22:17:45: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250106 09:42:24: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250106 11:46:58: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250106 13:30:42: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250106 14:27:28: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250106 15:17:38: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250107 15:46:34: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250107 15:46:36: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250108 15:04:06: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250108 15:54:21: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250109 00:01:56: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250110 10:25:28: 8-Undefined variable: email D:\www\raa\sources\ajax-send-pdf.php 54
+20250110 10:29:25: 8-Undefined variable: email D:\www\raa\sources\ajax-send-pdf.php 55
+20250110 10:30:00: 8-Undefined variable: email D:\www\raa\sources\ajax-send-pdf.php 55
+20250110 10:30:14: 8-Undefined variable: email D:\www\raa\sources\ajax-send-pdf.php 55
+20250110 10:32:55: 8-Undefined variable: email D:\www\raa\sources\ajax-send-pdf.php 55
+20250113 09:53:00: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250113 11:31:05: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250113 13:34:14: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250113 13:36:39: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250113 13:44:53: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15
+20250113 14:04:25: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday='' where id = 7)(Incorrect datetime value: '' for column 'birthday' at row 1)
+20250113 14:04:25: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday='' where id = 7)(Incorrect datetime value: '' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:11:04: 8-Undefined variable: dateString D:\www\raa\sources\ajax-save-profil.php 42
+20250113 14:11:04: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='',birthday='0' where id = 7)(Incorrect datetime value: '0' for column 'birthday' at row 1)
+20250113 14:11:04: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='',birthday='0' where id = 7)(Incorrect datetime value: '0' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:11:12: 8-Undefined variable: dateString D:\www\raa\sources\ajax-save-profil.php 42
+20250113 14:11:12: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday='0' where id = 7)(Incorrect datetime value: '0' for column 'birthday' at row 1)
+20250113 14:11:12: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday='0' where id = 7)(Incorrect datetime value: '0' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:12:07: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1)
+20250113 14:12:07: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:12:14: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1)
+20250113 14:12:14: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:20:57: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1)
+20250113 14:20:57: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:21:37: 8-A non well formed numeric value encountered D:\www\raa\sources\ajax-save-profil.php 52
+20250113 14:21:37: 2-A non-numeric value encountered D:\www\raa\sources\ajax-save-profil.php 52
+20250113 14:21:37: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1)
+20250113 14:21:37: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:22:27: 8-A non well formed numeric value encountered D:\www\raa\sources\ajax-save-profil.php 52
+20250113 14:22:27: 2-A non-numeric value encountered D:\www\raa\sources\ajax-save-profil.php 52
+20250113 14:22:27: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1)
+20250113 14:22:27: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:22:51: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1)
+20250113 14:22:51: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91155600 where id = 7)(Incorrect datetime value: '-91155600' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 14:29:50: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103410 where id = 7)(Incorrect datetime value: '-91103410' for column 'birthday' at row 1)
+20250113 14:29:50: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103410 where id = 7)(Incorrect datetime value: '-91103410' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 13:31:20: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103320 where id = 7)(Incorrect datetime value: '-91103320' for column 'birthday' at row 1)
+20250113 13:31:20: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103320 where id = 7)(Incorrect datetime value: '-91103320' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 13:32:32: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103248 where id = 7)(Incorrect datetime value: '-91103248' for column 'birthday' at row 1)
+20250113 13:32:32: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103248 where id = 7)(Incorrect datetime value: '-91103248' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250113 13:34:23: 1-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103137 where id = 7)(Incorrect datetime value: '-91103137' for column 'birthday' at row 1)
+20250113 13:34:23: 256-Erreur SQL (update users set firstname='Stéphane',lastname='Lafitte',phone='22267678',city='Pessac',birthday=-91103137 where id = 7)(Incorrect datetime value: '-91103137' for column 'birthday' at row 1) D:\www\raa\sources\error.php 69
+20250115 11:14:15: 8-mysqli_connect(): send of 36 bytes failed with errno=10053 Une connexion �tablie a �t� abandonn�e par un logiciel de votre ordinateur h�te.
+ D:\www\raa\sources\mysql.php 15

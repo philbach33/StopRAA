@@ -1,0 +1,8 @@
+[
+	{"page": "connexion", "scripts": ["connexion.js"], "styles":["styles.css", "connexion.css"]},
+	{"page": "form-1", "scripts": ["jspdf.umd.js", "html2canvas.min.js", "jspdf.plugin.autotable.min.js", "form-1.js"], "styles":["styles.css", "form.css"]},
+	{"page": "message", "scripts": ["message.js"], "styles":["styles.css", "message.css"]},
+	{"page": "user", "scripts": ["user.js"], "styles":["styles.css", "user.css"]},
+	{"page": "register", "scripts": ["register.js"], "styles":["styles.css", "register.css"]},
+	{"page": "home", "scripts": ["home.js"], "styles":["styles.css", "home.css"]}
+]

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="theme-color" content="#317EFB">
+	<title>RAA</title>
+
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">  
+	<link rel="apple-touch-icon" href="../icons/icon-192x192.png">  
+
+	<script type="text/javascript" src="/raa/script/jspdf.umd.js?t=1735912481858"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/raa/css/styles.css"/>
+	<link rel="stylesheet" type="text/css" href="/raa/css/templatePDF.css?t=1735912481858"/>
+</head>
+
+<body>
+
+	<div class="page">
+		<div id="date">Date: <span>12 décembre 2025</span></div>
+		<h1>Dépistage scolaire des CRC en Polynésie française <br> Consultation de confirmation en cardiologie</h1>
+		<div class="row">
+			<div class="gras" id="nom">Nom : <span>Lafitte</span></div>
+			<div class="gras" id="prenom">Prénom : <span>Stéphane</span></div>
+		</div>
+		<div class="row">
+			<div class="gras" id="ddn">Date de naissance : <span>14/09/1969</span></div>
+			<div class="gras" id="sexe">Sexe : <span>M</span></div>
+		</div>
+		<div class="row">
+			<div class="gras" id="dn">Numéro de DN : <span>889898</span></div>
+			<div class="gras" id="cps">Régime CPS : <span>???</span></div>
+		</div>
+		<div class="row">
+			<div class="gras" id="adresse">Adresse <label>(commune)</label> : <span>Pessac</span></div>
+		</div>
+		<div class="row">
+			<div class="gras" id="date_depistage">Date de dépistage : <span>23/12/2024</span></div>
+			<div class="gras" id="lieu_depistage">Lieu de dépistage : <span>Paris</span></div>
+		</div>
+		<div class="interligne"></div>
+		<div class="row">
+			<div id="souffle_cardiaque">Souffle cardiaque : <span class="gras">OUI</span></div>
+		</div>
+		<div class="row">
+			<div class="textarea" id="antecedent">Antécédents personnels de douleur articulaire évocatrice de RAA (date, durée, nombre, articulations atteintes, consultation médicale) : <br><span>blabla</span></div>
+		</div>
+		<div class="row">
+			<div id="souffle_cardiaque">Antécédents familiaux de RAA : <span class="gras">NON</span></div>
+			<div class="textarea gras" id="antecedent">Précisez : <span>blabla</span></div>
+		</div>
+	</div>
+
+	<button class="button" id="generate-pdf">Envoyer</button>
+
+<script>
+
+    function convertToPDF() {
+        const { jsPDF } = window.jspdf;
+
+        // Créer une nouvelle instance de jsPDF avec le format A4 (en points)
+    	const doc = new jsPDF("p", "mm", "a4");
+
+        // Capture le contenu de la page et l'ajoute à la première page du PDF
+        const element = document.querySelector('.page');
+
+	    html2canvas(element).then((canvas) => {
+	        const imgData = canvas.toDataURL("image/png");
+	        const imgWidth = 210; // Largeur A4 en mm
+	        const pageHeight = 297; // Hauteur A4 en mm
+	        const imgHeight = (canvas.height * imgWidth) / canvas.width; // Hauteur calculée en fonction de la largeur
+	        const heightLeft = imgHeight;
+
+	        let position = 0; // Position de départ pour chaque page
+
+	        // Ajouter les pages au PDF
+	        doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+
+	        let heightRemaining = heightLeft - pageHeight;
+	        while (heightRemaining > 0) {
+	            position = heightRemaining - imgHeight; // Nouvelle position
+	            doc.addPage();
+	            doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+	            heightRemaining -= pageHeight;
+	        }
+
+	        // Enregistrer le PDF
+	        doc.save("document.pdf");
+	    });
+    }
+
+    // Fonction pour ajuster le zoom
+	function adjustZoom() {
+	    const page = document.querySelector('.page');
+	    const pageWidth = 210; // Largeur de la page en mm
+	    const pageHeight = 297; // Hauteur de la page en mm
+	    const screenWidth = window.innerWidth - 2; // Largeur de l'écran en pixels
+	    const screenHeight = window.innerHeight; // Hauteur de l'écran en pixels
+
+	    // Conversion mm -> px (1 mm = 3.7795275591 px)
+	    const pxPerMm = 3.7795275591;
+	    const scaleX = screenWidth / (pageWidth * pxPerMm);
+	    const scaleY = screenHeight / (pageHeight * pxPerMm);
+
+	    // Utiliser le plus petit facteur de zoom pour ne pas dépasser l'écran
+	    const scale = Math.min(scaleX, scaleY);
+
+	    // Appliquer la transformation de zoom
+	    page.style.transform = `scale(${scale})`;
+	    page.style.transformOrigin = "top left";
+
+	    // Ajuster la position pour centrer
+	    const scaledWidth = pageWidth * pxPerMm * scale;
+	    const scaledHeight = pageHeight * pxPerMm * scale;
+
+	    const offsetX = (screenWidth - scaledWidth) / 2;
+	    const offsetY = 0; //(screenHeight - scaledHeight) / 2;
+
+	    page.style.position = "absolute";
+	    page.style.left = `${offsetX}px`;
+	    page.style.top = `${offsetY}px`;
+	}
+    // Fonction pour forcer le recalcul du zoom après rechargement de la page
+    function forceReloadZoom() {
+        setTimeout(() => {
+            adjustZoom();  // Appliquer immédiatement le zoom après un léger délai
+        }, 100);
+    }
+
+    // Attendre que la page soit complètement chargée et exécuter le zoom
+    window.onload = function() {
+        forceReloadZoom(); // Appliquer le zoom après le chargement
+    };
+
+    // Recalculer le zoom lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', adjustZoom);
+
+    // Appliquer immédiatement le zoom si en mode inspecteur
+    if (window.innerWidth !== document.documentElement.clientWidth) {
+        adjustZoom(); // Appliquer immédiatement le zoom en mode développement
+    }
+
+    // Forcer le zoom dès que la page est rafraîchie (utile avec F5)
+    window.addEventListener("load", function() {
+        forceReloadZoom(); // Forcer l'application du zoom
+    });
+
+    document.getElementById("generate-pdf").addEventListener("click", convertToPDF);
+
+</script>
+
+</body>

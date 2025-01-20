@@ -1,0 +1,48 @@
+<div id="register-wrapper">
+<div align="left" id="box">
+	<form id="form" method="post" action="">
+		<div class="titre">Inscription {SITE_NAME}
+			<i id="help" class="fas fa-info-circle"></i>
+		</div>
+		<div id="instructions">
+			{PLATEFORME_MESSAGE_1}<br/>{PLATEFORME_MESSAGE_2}
+		</div>					
+		<div align="center" id="login">
+			<div class="error" id="error-group"></div>
+
+			<div class="interline"></div>
+			<label>Nom</label>
+			<input type="text" id="firstname" name="firstname" value="Stéphane" placeholder="Prénom">
+			<div class="error" id="error-firstname"></div>
+
+			<label>Prénom</label>
+			<input type="text" id="lastname" name="lastname" value="Lafitte" placeholder="Nom">
+			<div class="error" id="error-lastname"></div>
+			<br/>
+			<label>Adresse mail</label>
+			<input type="text" id="email" name="email" placeholder="Adresse mail"  value="stlafitte@gmail.com">
+			<div class="error" id="error-email"></div>
+			<div class="interline"></div>
+
+			<label>Mot de passe</label><span class='infos orange'> 8 caractères, une majuscule et un caractère spécial ( &!?#$* ) minimun</span>
+			<div class="password">
+				<input type="password" id="password" name="password" placeholder="Mot de passe" value="#Ba123456">
+				<i class="password-status far fa-eye"></i>
+			</div>			
+			<div class="error" id="error-pwd"></div>
+
+			<label>Confirmation du mot de passe</label>			
+			<div class="password">
+				<input type="password" id="password-confirm" name="password-confirm" placeholder="Confirmation mot de passe" value="#Ba123456">
+				<i class="password-status far fa-eye"></i>
+			</div>						
+			<div class="error" id="error-pwd-confirm"></div>
+		</div>
+		<div id="CGU">
+			En cliquant sur S'inscrire, vous acceptez nos <a target="_blank" href="CGU.pdf">Conditions Générales d'Utilisation</a>.
+		</div>
+		<div align="center" id="submit"><input name="submit" type="submit" class="bouton-submit" value="S'inscrire"></div>
+	</form>
+</div>
+</div>
+</body>

@@ -1,0 +1,41 @@
+#wrapper { 
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	width: calc(100% - 20px);
+	/*min-height: calc(100vh - var(--header-height) - 20px); */
+	/*height: calc(100vh - var(--header-height));*/
+	margin: 0;
+	padding: 10px;
+	/*padding: 10px;*/
+	position: relative;
+	background-color: white;
+	margin-top: var(--header-height);
+	overflow-y: auto;
+
+	min-height: 100%; /* Permet d'occuper au moins la hauteur de l'écran */
+	/*max-height: calc(100vh - var(--header-height) - 20px); /* Défilement si le contenu dépasse */
+  	height: calc(100vh - var(--header-height) - 20px); /* Hauteur fixe en fonction de l'écran */
+
+	overflow-y: auto; /* Active le défilement vertical */	
+}
+
+#wrapper h1 { 
+	align-self: flex-start;
+	margin-top: 10px;
+}
+
+#wrapper button {
+	width: 100%;
+}
+
+#wrapper .row { padding-bottom: 0px; }
+#wrapper #goback {
+	width: auto;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}

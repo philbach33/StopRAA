@@ -1,0 +1,37 @@
+#wrapper { 
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+
+	width: calc(100vw - 10px);
+	min-height: calc(100vh - var(--header-height) - 10px);
+	margin: 0;
+	padding: 5px;
+	position: relative;
+	background-color: white;
+	margin-top: var(--header-height);
+}
+
+#wrapper #message { 
+	display: flex;
+	flex-direction: column;
+	margin-top: 0;
+	font-size: 1.2rem;
+	/*border: 1px solid #990000;*/
+	padding: 5px;
+	margin-bottom: 20px;
+	text-align: justify;
+}
+
+#wrapper #message li {
+	font-size: 1.2rem;
+}
+
+#wrapper h1 { 
+	align-self: flex-start;
+	margin-top: 10px;
+}
+
+#wrapper button { width: calc(100% - 10px); padding: 15px 0 15px 0; }

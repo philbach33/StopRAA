@@ -1,0 +1,98 @@
+[
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "header-title" , "value" :  "Dépistage scolaire des CRC en Polynésie française" },
+	{ "type" : "header-title" , "value" :  "Consultation de confirmation en cardiologie" },
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "row", "values" : [ "lastname", "firstname" ] },
+	{ "type" : "row", "values" : [ "birth_date", "sexe" ] },
+	{ "type" : "row", "values" : [ "dn", "cps" ] },
+	{ "type" : "row", "values" : [ "address" ] },
+	{ "type" : "row", "values" : [ "screening_date", "screening_where" ] },
+	{ "type" : "row", "values" : [ "background" ] },
+	{ "type" : "row", "values" : [ "back_raa" ] },
+	{ "type" : "saut-de-ligne" },
+	{ "type" : "title", "value" : "Données échographiques" },
+	{ 
+		"type" : "table", "title" : "Fuite pathologique (tous les critères doivent être réunis)", "rows" :
+		[
+			{ "title" : "Valve mitrale", "variable" : "vm_im_view" },
+			{ "title" : "", "variable" : "vm_jet_2cm" },
+			{ "title" : "", "variable" : "vm_dont_speed" },
+			{ "title" : "", "variable" : "vm_dont_flow" },		
+			{ "title" : "Valve aortique", "variable" : "va_2views" },
+			{ "title" : "", "variable" : "va_jet_1cm" },
+			{ "title" : "", "variable" : "va_dont_speed" },
+			{ "title" : "", "variable" : "va_dont_flow" }			
+		]
+	},
+	{ 
+		"type" : "table", "title" : "Sténose mitrale (tous les critères doivent être réunis)", "rows" :
+		[
+			{ "title" : "", "variable" : "limited_valve_opening" },
+			{ "title" : "", "variable" : "average_gradient_4" }		
+		]
+	},
+	{ 
+		"type" : "table", "title" : "Critères morphologiques : un seul critère suffit chez les < 20 ans (2 critères nécessaires si ≥20 ans)", "rows" :
+		[
+			{ "title" : "Valve mitrale", "variable" : "cm_vm_valve_thickness" },
+			{ "title" : "", "variable" : "cm_vm_ropes_thickening" },
+			{ "title" : "", "variable" : "cm_vm_restriction_valve_movements" },
+			{ "title" : "", "variable" : "cm_vm_excessive_movement_valve" },		
+			{ "title" : "Valve aortique", "variable" : "cm_va_sigmoids_thickening" },
+			{ "title" : "", "variable" : "cm_va_sigmoid_prolapse" },
+			{ "title" : "", "variable" : "cm_va_sigmoid_movements" },
+			{ "title" : "", "variable" : "cm_va_failure_diastole" }			
+		]
+	},
+	{ "type" : "saut-de-page" },
+	{ "type" : "title", "value" : "Définition et classification des atteintes valvulaires" },
+	{ 
+		"type" : "table", "class" : "classification-first", "title" : "Stade A : Critères échographiques minimum de CR (anciennement CRC limite)", "rows" :
+		[
+			{ "title" : "Age", "text" : "< 20 ans uniquement" },
+			{ "title" : "Risque évolutif", "text" : "Progression possible vers une cardiopathie valvulaire" },
+			{ "title" : "Echographie", "text" : "Fuite pathologique légère mitrale ou aortique sans critères morphologiques" },
+			{ "title" : "Conduite à tenir", "text" : "Envisager le traitement en fonction des antécédents familiaux et de l’histoire personnelle *" }
+		]
+	},
+	{ 
+		"type" : "table", "class" : "classification", "title" : "Stade B : CRC légère **", "rows" :
+		[
+			{ "title" : "Age", "text" : "Applicable à tout âge" },
+			{ "title" : "Risque évolutif", "text" : "Risque modéré ou élevé de progression et risque de développer des symptômes de cardiopathie rhumatismale" },
+			{ "title" : "Echographie", "text" : "Fuite valvulaire pathologique légère + 1 critère morphologique si âge ≤20 ans (+ 2 critères morphologiques si âge > 20 ans)<br><b>ou</b><br>IM légère + IA légère" }
+		]
+	},
+	{ 
+		"type" : "table", "class" : "classification", "title" : "Stade C : CRC avérée à risque de complications cliniques **", "rows" :
+		[
+			{ "title" : "Age", "text" : "Applicable à tout âge" },
+			{ "title" : "Risque évolutif", "text" : "Haut risque de complications cliniques nécessitant un traitement médical et/ou chirurgical" },
+			{ "title" : "Echographie", "text" : "Caractéristiques échographiques : IM modérée ou sévère, IA modérée ou sévère, sténose mitrale, hypertension pulmonaire, fonction systolique du VG diminuée" }
+		]
+	},
+	{ 
+		"type" : "table", "class" : "classification", "title" : "Stade D : CRC sévère avec complications cliniques **", "rows" :
+		[
+			{ "title" : "Age", "text" : "Applicable à tout âge" },
+			{ "title" : "Risque évolutif", "text" : "Complications incluant insuffisance cardiaque congestive, chirurgie, arythmie, AVC, endocardite infectieuse" },
+			{ "title" : "Echographie", "text" : "Fuite mitrale modérée/sévère, fuite aortique modérée/sévère, sténose mitrale ou aortique, hypertension pulmonaire, fonction VG diminuée" }
+		]
+	},
+	{ "type" : "saut-de-page" },
+	{ "type" : "subtitle", "value" : "Diagnostic: " },	
+	{ "type" : "row", "values" : [ "diagnostic" ] },
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "row", "values" : [ "crc" ] },
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "row", "values" : [ "other_congenital_anomaly" ] },
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "subtitle", "value" : "Traitement et suivi proposé: " },		
+	{ "type" : "row", "values" : [ "surveillance_echo"] },
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "row", "values" : [ "traitement"] },
+	{ "type" : "saut-de-ligne" },	
+	{ "type" : "row", "values" : [ "duree_pii" ] }
+]

@@ -1,0 +1,22 @@
+[
+	{"SITE_NAME" : "Diagnostic RAA"},
+	{"URL" : "http://localhost/raa/"},	
+	{"LOGO" : "icon-192x192.png"},
+	{"BUTTON_LAST" : "Précédent"},
+	{"BUTTON_NEXT" : "Suivant"},
+	{"ROOT" : "/raa/"},
+	{"EMAIL" : "bacheletph@wanadoo.fr"},
+	{"EMAIL_ADMIN" : "bacheletph@wanadoo.fr"},
+	{"EMAIL_NAME" : "Stop RAA"},
+	{"EMAIL_CONTACT" : "bacheletph@gmail.com"},
+	{"EMAIL_NOREPLY" : "noreply@sobeezy.org"},	
+	{"SMTP_SERVER" : "smtp.gmail.com"},
+	{"SMTP_USER" : "bacheletph@gmail.com"},
+	{"SMTP_PWD" : "ddzvrbulsuxflkep"},
+	{"THEME" : "parallax"},
+	{"BASE" : "mysqli"},
+	{"BASE_NAME" : "raa"},
+	{"BASE_USER" : "root"},
+	{"BASE_PWD" : ""},
+	{"BASE_SERVER" : "p:localhost"}
+]
